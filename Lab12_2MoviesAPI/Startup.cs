@@ -10,6 +10,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Lab12_2MoviesAPI.Models;
+using MySql.Data.MySqlClient;
 
 namespace Lab12_2MoviesAPI
 {
@@ -25,6 +27,9 @@ namespace Lab12_2MoviesAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            string connstring = Configuration.GetConnectionString("db");
+            DAL.DB = new MySqlConnection(connstring);
+            services.AddControllersWithViews();
             services.AddControllers();
         }
 
