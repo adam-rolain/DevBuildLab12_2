@@ -12,10 +12,18 @@ namespace Lab12_2MoviesAPI.Controllers
     [ApiController]
     public class MovieController : ControllerBase
     {
+        // https://localhost:44359/api/Movie
         [HttpGet]
         public List<Movie> GetAll()
         {
             return DAL.GetAllMovies();
+        }
+
+        // https://localhost:44359/api/Movie/Category?catId=SCIFI
+        [HttpGet("Category")]
+        public List<Movie> GetMoviesByCategory(string catId)
+        {
+            return DAL.GetMoviesByCategory(catId);
         }
     }
 }

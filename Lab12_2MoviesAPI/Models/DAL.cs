@@ -16,5 +16,10 @@ namespace Lab12_2MoviesAPI.Models
         {
             return DB.GetAll<Movie>().ToList();
         }
+
+        public static List<Movie> GetMoviesByCategory(string categoryId)
+        {
+            return DB.Query<Movie>("SELECT * FROM movie WHERE category = @categoryId", new { categoryId = categoryId }).ToList();
+        }
     }
 }
