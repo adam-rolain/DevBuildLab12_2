@@ -67,5 +67,26 @@ namespace Lab12_2MoviesAPI.Controllers
         {
             return DAL.GetMovieByTitleSearch(searchString);
         }
+
+        // POST https://localhost:44359/api/Movie
+        [HttpPost]
+        public long InsertMovie(Movie movie)
+        {
+            return DAL.InsertMovie(movie);
+        }
+
+        // DELETE https://localhost:44359/api/Movie/2
+        [HttpDelete("{movieId}")]
+        public bool DeleteMovie(int movieId)
+        {
+            return DAL.DeleteMovie(movieId);
+        }
+
+        // PUT https://localhost:44359/api/Movie
+        [HttpPut]
+        public bool UpdateMovie(Movie movie)
+        {
+            return DAL.UpdateMovie(movie);
+        }
     }
 }

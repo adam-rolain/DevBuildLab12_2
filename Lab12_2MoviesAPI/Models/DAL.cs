@@ -96,5 +96,20 @@ namespace Lab12_2MoviesAPI.Models
         {
             return DB.Query<Movie>("SELECT * FROM movie WHERE name LIKE @searchString", new { searchString = $"%{searchString}%" }).ToList();
         }
+
+        public static long InsertMovie(Movie movie)
+        {
+            return DB.Insert<Movie>(movie);
+        }
+
+        public static bool DeleteMovie(int movieId)
+        {
+            return DB.Delete<Movie>(new Movie() { Id = movieId });
+        }
+
+        public static bool UpdateMovie(Movie movie)
+        {
+            return DB.Update<Movie>(movie);
+        }
     }
 }
